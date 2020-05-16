@@ -1,0 +1,32 @@
+<%= form_with(model: custome_attribute, local: true) do |form| %>
+  <% if custome_attribute.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(custome_attribute.errors.count, "error") %> prohibited this custome_attribute from being saved:</h2>
+
+      <ul>
+        <% custome_attribute.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :field_name %>
+    <%= form.text_field :field_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :field_type %>
+    <%= form.select :field_type, CustomeAttribute::FIELD_TYPES %>
+  </div>
+
+  <div class="field">
+    <%= form.label :required %>
+    <%= form.check_box :required %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @activity.name %>
+</p>
+
+<p>
+  <strong>Custome Attributes:</strong>
+  <ul>
+    <%- @activity.custome_attributes_value.each do |key, value| %>
+      <li>
+      <b>field_name</b>: <%= key%><br>
+      field_value: <%= value%><br>
+      </li>
+    <%end%>
+  </ul>
+</p>
+
+<%= link_to 'Edit', edit_activity_path(@activity) %> |
+<%= link_to 'Back', activities_path %>
