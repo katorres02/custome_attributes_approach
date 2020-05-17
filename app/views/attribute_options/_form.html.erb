@@ -1,0 +1,27 @@
+<%= form_with(model: attribute_option, local: true) do |form| %>
+  <% if attribute_option.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(attribute_option.errors.count, "error") %> prohibited this attribute_option from being saved:</h2>
+
+      <ul>
+        <% attribute_option.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :custome_attribute_id %>
+    <%= form.select :custome_attribute_id, @selectable_custome_attributes %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -10,13 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_16_144038) do
+ActiveRecord::Schema.define(version: 2020_05_17_024741) do
 
   create_table "activities", force: :cascade do |t|
     t.string "name"
     t.text "custome_attributes_value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "attribute_options", force: :cascade do |t|
+    t.string "name"
+    t.integer "custome_attribute_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["custome_attribute_id"], name: "index_attribute_options_on_custome_attribute_id"
   end
 
   create_table "custome_attributes", force: :cascade do |t|
@@ -27,4 +35,5 @@ ActiveRecord::Schema.define(version: 2020_05_16_144038) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "attribute_options", "custome_attributes"
 end

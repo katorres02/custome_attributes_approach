@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Attribute Options</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Custome attributes</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @attribute_options.each do |attribute_option| %>
+      <tr>
+        <td><%= attribute_option.name %></td>
+        <td><%= attribute_option.custome_attribute_id %></td>
+        <td><%= link_to 'Show', attribute_option %></td>
+        <td><%= link_to 'Edit', edit_attribute_option_path(attribute_option) %></td>
+        <td><%= link_to 'Destroy', attribute_option, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Attribute Option', new_attribute_option_path %>

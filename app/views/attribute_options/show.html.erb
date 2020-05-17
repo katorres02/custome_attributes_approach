@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @attribute_option.name %>
+</p>
+
+<p>
+  <strong>Custome attributes:</strong>
+  <%= @attribute_option.custome_attribute_id %>
+</p>
+
+<%= link_to 'Edit', edit_attribute_option_path(@attribute_option) %> |
+<%= link_to 'Back', attribute_options_path %>

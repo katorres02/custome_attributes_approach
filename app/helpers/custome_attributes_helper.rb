@@ -60,5 +60,13 @@ module CustomeAttributesHelper
     def integer_field
       form.text_field(field_name, type: :number)
     end
+
+    def select_field
+      form.select(field_name, options)
+    end
+
+    def options
+      AttributeOption.pluck(:name, :id)
+    end
   end
 end
